@@ -7,6 +7,7 @@ require 'benchmark/memory'
 
 require 'colordom'
 require 'camalian'
+require 'colorscore'
 require 'miro'
 
 COUNT = 5
@@ -18,6 +19,11 @@ def miro(method)
 
   colors = Miro::DominantColors.new(IMAGE)
   colors.to_hex
+end
+
+def colorscore
+  histogram = Colorscore::Histogram.new(IMAGE, COUNT)
+  histogram.colors
 end
 
 def camalian(quant)
@@ -36,6 +42,10 @@ reports = lambda do |x|
 
   x.report('colordom (KMS)') do
     Colordom.kmeans(IMAGE, COUNT)
+  end
+
+  x.report('colorscore (HST)') do
+    colorscore
   end
 
   x.report('miro (HST)') do
