@@ -4,7 +4,7 @@ Ruby gem to extract color palettes from images implemented in Rust. Rust must be
 
 [![Gem Version](https://badge.fury.io/rb/colordom.svg)](https://badge.fury.io/rb/colordom)
 [![Build Status](https://travis-ci.org/hardpixel/colordom.svg?branch=master)](https://travis-ci.org/hardpixel/colordom)
-[![Maintainability](https://api.codeclimate.com/v1/badges/7e307214d3c2e4d2056d/maintainability)](https://codeclimate.com/github/hardpixel/colordom/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6040c6d79abf2d6e7efb/maintainability)](https://codeclimate.com/github/hardpixel/colordom/maintainability)
 
 ## Installation
 
