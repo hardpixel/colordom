@@ -1,0 +1,25 @@
+[package]
+name = "colordom"
+version = "0.1.0"
+authors = ["Jonian Guveli <jonian@hardpixel.eu>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[dependencies]
+image = "0.24"
+dominant_color = "0.3"
+palette_extract = "0.1"
+
+[dependencies.kmeans_colors]
+version = "0.5"
+default-features = false
+features = ["palette_color"]
+
+[dependencies.palette]
+version = "0.6"
+default-features = false
+features = ["std"]
+
+[lib]
+name = "colordom"
+crate-type = ["cdylib"]

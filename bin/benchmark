@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+
+require 'benchmark/ips'
+require 'benchmark/memory'
+
+require 'colordom'
+require 'camalian'
+
+COUNT = 5
+IMAGE = File.join(__dir__, '..', 'samples/sample.png')
+
+def camalian(quant)
+  img = Camalian::load(IMAGE)
+  img.prominent_colors(COUNT, quantization: quant)
+end
+
+reports = lambda do |x|
+  x.report('colordom (HST)') do
+    Colordom.histogram(IMAGE, COUNT)
+  end
+
+  x.report('colordom (MCQ)') do
+    Colordom.mediancut(IMAGE, COUNT)
+  end
+
+  x.report('colordom (KMS)') do
+    Colordom.kmeans(IMAGE, COUNT)
+  end
+
+  x.report('camalian (HST)') do
+    camalian(Camalian::QUANTIZATION_HISTOGRAM)
+  end
+
+  x.report('camalian (MCQ)') do
+    camalian(Camalian::QUANTIZATION_MEDIAN_CUT)
+  end
+
+  x.report('camalian (KMS)') do
+    camalian(Camalian::QUANTIZATION_K_MEANS)
+  end
+end
+
+Benchmark.ips do |x|
+  reports.call(x)
+  x.compare!
+end
+
+Benchmark.memory do |x|
+  reports.call(x)
+  x.compare!
+end
