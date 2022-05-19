@@ -16,9 +16,7 @@ module Colordom
     end
 
     def hex
-      rgb.inject('#') do |str, val|
-        str + val.to_s(16).rjust(2, '0').upcase
-      end
+      '#%02X%02X%02X' % rgb
     end
 
     alias to_rgb rgb
