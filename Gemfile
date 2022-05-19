@@ -6,3 +6,5 @@ gemspec
 gem 'benchmark-ips'
 gem 'benchmark-memory'
 gem 'camalian'
+gem 'miro', github: 'jonbuda/miro'
+gem 'chunky_png', '1.3.15'

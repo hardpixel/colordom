@@ -7,9 +7,18 @@ require 'benchmark/memory'
 
 require 'colordom'
 require 'camalian'
+require 'miro'
 
 COUNT = 5
 IMAGE = File.join(__dir__, '..', 'samples/sample.png')
+
+def miro(method)
+  Miro.options[:color_count] = COUNT
+  Miro.options[:method] = method
+
+  colors = Miro::DominantColors.new(IMAGE)
+  colors.to_hex
+end
 
 def camalian(quant)
   img = Camalian::load(IMAGE)
@@ -27,6 +36,14 @@ reports = lambda do |x|
 
   x.report('colordom (KMS)') do
     Colordom.kmeans(IMAGE, COUNT)
+  end
+
+  x.report('miro (HST)') do
+    miro('histogram')
+  end
+
+  x.report('miro (PXG)') do
+    miro('pixel_group')
   end
 
   x.report('camalian (HST)') do
