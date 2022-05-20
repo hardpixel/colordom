@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Jonian Guveli']
   spec.email         = ['jonian@hardpixel.eu']
 
-  spec.summary       = %q{Ruby wrapper for dominant color utilities in Rust}
-  spec.description   = %q{This project is a wrapper for dominant color utilities implemented in Rust.}
+  spec.summary       = %q{Extract dominant colors from images}
+  spec.description   = %q{Extract dominant colors from images using native extension implemented in Rust.}
   spec.homepage      = 'https://github.com/hardpixel/colordom'
   spec.license       = 'MIT'
 
