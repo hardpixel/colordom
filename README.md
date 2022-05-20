@@ -1,6 +1,6 @@
 # Colordom
 
-Ruby gem to extract color palettes from images implemented in Rust. Rust must be available on your system to install this gem.
+Ruby gem to extract dominant colors from images using native extension implemented in Rust. Rust must be available on your system to install this gem.
 
 [![Gem Version](https://badge.fury.io/rb/colordom.svg)](https://badge.fury.io/rb/colordom)
 [![Build Status](https://travis-ci.org/hardpixel/colordom.svg?branch=master)](https://travis-ci.org/hardpixel/colordom)
