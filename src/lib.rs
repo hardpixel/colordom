@@ -23,7 +23,6 @@ pub extern "C" fn to_histogram(path: *const c_char) -> *mut c_char {
     Err(ex) => return to_char(format!("Colordom::Error {:?}", ex.to_string()))
   };
 
-
   let has_alpha = match img.color() {
     image::ColorType::Rgba8 => true,
     image::ColorType::Rgba16 => true,
@@ -57,7 +56,7 @@ pub extern "C" fn to_mediancut(path: *const c_char, max_colors: u8) -> *mut c_ch
 }
 
 #[no_mangle]
-pub extern "C" fn to_kmeans(path: *const c_char, max_colors: u8) -> *mut c_char {
+pub extern "C" fn to_kmeans(path: *const c_char, max_colors: usize) -> *mut c_char {
   let img = match image::open(&to_string(path)) {
     Ok(res) => res,
     Err(ex) => return to_char(format!("Colordom::Error {:?}", ex.to_string()))
@@ -75,7 +74,7 @@ pub extern "C" fn to_kmeans(path: *const c_char, max_colors: u8) -> *mut c_char 
     .collect();
 
   let run_result = kmeans_colors::get_kmeans_hamerly(
-    max_colors.into(),
+    max_colors,
     max_iterations,
     converge,
     verbose,
