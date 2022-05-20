@@ -1,0 +1,68 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+
+require 'tempfile'
+require 'base64'
+
+require 'colordom'
+require 'camalian'
+require 'colorscore'
+require 'miro'
+
+COUNT = 6
+IMAGE = File.join(__dir__, '..', 'samples/compare.png')
+TEMPL = File.read File.join(__dir__, '..', 'samples/compare.svg')
+
+TEMPL.sub!('compare.png', "data:image/png;base64,#{Base64.strict_encode64(File.read(IMAGE))}")
+
+def replace(prefix, colors)
+  colors.each_with_index do |color, index|
+    TEMPL.sub!("{{#{prefix}-#{index}}}", color)
+  end
+end
+
+def miro(method, prefix)
+  Miro.options[:color_count] = COUNT
+  Miro.options[:method] = method
+
+  colors = Miro::DominantColors.new(IMAGE)
+  replace("miro-#{prefix}", colors.to_hex)
+end
+
+def colorscore(prefix)
+  histogram = Colorscore::Histogram.new(IMAGE, COUNT)
+  replace("colorscore-#{prefix}", histogram.colors.map(&:html))
+end
+
+def camalian(quant, prefix)
+  image  = Camalian::load(IMAGE)
+  colors = image.prominent_colors(COUNT, quantization: quant)
+
+  replace("camalian-#{prefix}", colors.map(&:to_hex))
+end
+
+def colordom(method, prefix)
+  colors = Colordom.send(method, IMAGE, COUNT)
+  replace("colordom-#{prefix}", colors.map(&:to_hex))
+end
+
+colordom(:histogram, 'hst')
+colordom(:mediancut, 'mcq')
+colordom(:kmeans, 'kms')
+
+camalian(Camalian::QUANTIZATION_HISTOGRAM, 'hst')
+camalian(Camalian::QUANTIZATION_MEDIAN_CUT, 'mcq')
+camalian(Camalian::QUANTIZATION_K_MEANS, 'kms')
+
+colorscore('hst')
+
+miro('histogram', 'hst')
+miro('pixel_group', 'pxg')
+
+tempfile = Tempfile.create(['colordom-compare', '.svg'])
+
+tempfile.write(TEMPL)
+tempfile.close
+
+system("xdg-open #{tempfile.path}")

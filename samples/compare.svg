@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800" height="1140" viewBox="0 0 211.66666 301.625" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image width="211.66667" height="119.0625" xlink:href="compare.png" x="0" y="0"/>
+  <rect style="fill:#ffffff" width="211.66667" height="182.5625" x="0" y="119.0625"/>
+
+  <text style="font-size:5.29167px" x="33.045532" y="136.57668">colordom (HST)</text>
+  <g id="colordom-hst" transform="translate(50.270828,-10.583333)">
+    <rect style="fill:{{colordom-hst-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{colordom-hst-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{colordom-hst-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{colordom-hst-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{colordom-hst-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{colordom-hst-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="31.190346" y="152.45164">colordom (MCQ)</text>
+  <g id="colordom-mcq" transform="translate(50.270828,5.2916666)">
+    <rect style="fill:{{colordom-mcq-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{colordom-mcq-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{colordom-mcq-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{colordom-mcq-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{colordom-mcq-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{colordom-mcq-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="32.221291" y="168.32661">colordom (KMS)</text>
+  <g id="colordom-kms" transform="translate(50.270828,21.166665)">
+    <rect style="fill:{{colordom-kms-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{colordom-kms-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{colordom-kms-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{colordom-kms-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{colordom-kms-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{colordom-kms-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="33.647564" y="192.13907">camalian (HST)</text>
+  <g id="camalian-hst" transform="translate(50.270828,44.979162)">
+    <rect style="fill:{{camalian-hst-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{camalian-hst-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{camalian-hst-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{camalian-hst-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{camalian-hst-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{camalian-hst-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="31.792377" y="208.01404">camalian (MCQ)</text>
+  <g id="camalian-mcq" transform="translate(50.270828,60.85416)">
+    <rect style="fill:{{camalian-mcq-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{camalian-mcq-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{camalian-mcq-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{camalian-mcq-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{camalian-mcq-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{camalian-mcq-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="32.823322" y="223.88901">camalian (KMS)</text>
+  <g id="camalian-kms" transform="translate(50.270828,76.729158)">
+    <rect style="fill:{{camalian-kms-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{camalian-kms-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{camalian-kms-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{camalian-kms-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{camalian-kms-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{camalian-kms-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="30.484962" y="247.70146">colorscore (HST)</text>
+  <g id="colorscore-hst" transform="translate(50.270828,100.54166)">
+    <rect style="fill:{{colorscore-hst-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{colorscore-hst-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{colorscore-hst-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{colorscore-hst-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{colorscore-hst-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{colorscore-hst-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="45.812202" y="271.51401">miro (HST)</text>
+  <g id="miro-hst" transform="translate(50.270828,124.35413)">
+    <rect style="fill:{{miro-hst-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{miro-hst-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{miro-hst-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{miro-hst-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{miro-hst-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{miro-hst-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+
+  <text style="font-size:5.29167px" x="45.465969" y="287.38907">miro (PXG)</text>
+  <g id="miro-pxg" transform="translate(50.270828,140.22911)">
+    <rect style="fill:{{miro-pxg-0}}" width="13.229167" height="13.229167" x="29.897917" y="138.90625"/>
+    <rect style="fill:{{miro-pxg-1}}" width="13.229167" height="13.229167" x="43.127075" y="138.90625"/>
+    <rect style="fill:{{miro-pxg-2}}" width="13.229167" height="13.229167" x="56.356236" y="138.90625"/>
+    <rect style="fill:{{miro-pxg-3}}" width="13.229167" height="13.229167" x="69.585442" y="138.90625"/>
+    <rect style="fill:{{miro-pxg-4}}" width="13.229167" height="13.229167" x="82.814621" y="138.90625"/>
+    <rect style="fill:{{miro-pxg-5}}" width="13.229167" height="13.229167" x="96.043839" y="138.90625"/>
+  </g>
+</svg>
