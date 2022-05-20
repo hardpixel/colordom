@@ -47,7 +47,7 @@ pub extern "C" fn to_mediancut(path: *const c_char, max_colors: u8) -> *mut c_ch
   let result = palette_extract::get_palette_with_options(
     &pixels,
     PixelEncoding::Rgb,
-    Quality::default(),
+    Quality::new(6),
     MaxColors::new(max_colors),
     PixelFilter::None
   );
