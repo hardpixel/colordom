@@ -3,7 +3,7 @@
 Ruby gem to extract dominant colors from images using native extension implemented in Rust. Rust must be available on your system to install this gem.
 
 [![Gem Version](https://badge.fury.io/rb/colordom.svg)](https://badge.fury.io/rb/colordom)
-[![Build Status](https://travis-ci.org/hardpixel/colordom.svg?branch=master)](https://travis-ci.org/hardpixel/colordom)
+[![Build](https://github.com/hardpixel/colordom/actions/workflows/build.yml/badge.svg)](https://github.com/hardpixel/colordom/actions/workflows/build.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6040c6d79abf2d6e7efb/maintainability)](https://codeclimate.com/github/hardpixel/colordom/maintainability)
 
 ## Installation
