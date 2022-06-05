@@ -1,4 +1,4 @@
 module Colordom
-  class Color
+  class Image
   end
 end
