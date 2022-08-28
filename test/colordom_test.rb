@@ -29,10 +29,10 @@ class ColordomTest < Minitest::Test
   private
 
   def valid_image
-    File.join(__dir__, '..', 'samples/valid.jpg')
+    File.join(__dir__, 'fixtures/valid.jpg')
   end
 
   def invalid_image
-    File.join(__dir__, '..', 'samples/invalid.png')
+    File.join(__dir__, 'fixtures/invalid.png')
   end
 end

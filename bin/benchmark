@@ -15,7 +15,7 @@ gemfile true, quiet: true do
 end
 
 COUNT = 5
-IMAGE = File.join(__dir__, '..', 'samples/sample.png')
+IMAGE = File.join(__dir__, '..', 'test/fixtures/sample.png')
 
 def miro(method)
   Miro.options[:color_count] = COUNT

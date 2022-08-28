@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'bundler/inline'
+require 'base64'
 
 gemfile true, quiet: true do
   source 'https://rubygems.org'
@@ -13,8 +14,8 @@ gemfile true, quiet: true do
 end
 
 COUNT = 6
-IMAGE = File.join(__dir__, '..', 'samples/compare.png')
-TEMPL = File.read File.join(__dir__, '..', 'samples/compare.svg')
+IMAGE = File.join(__dir__, '..', 'test/fixtures/compare.png')
+TEMPL = File.read File.join(__dir__, '..', 'test/fixtures/compare.svg')
 
 TEMPL.sub!('compare.png', "data:image/png;base64,#{Base64.strict_encode64(File.read(IMAGE))}")
 
