@@ -1,12 +1,9 @@
-require 'thermite/fiddle'
-
-project_dir = File.dirname(File.dirname(__FILE__))
-
-Thermite::Fiddle.load_module(
-  'Init_colordom',
-  cargo_project_path: project_dir,
-  ruby_project_path: project_dir
-)
+begin
+  RUBY_VERSION =~ /(\d+\.\d+)/
+  require "colordom/#{$1}/colordom"
+rescue LoadError
+  require 'colordom/colordom'
+end
 
 require 'colordom/error'
 require 'colordom/color'
