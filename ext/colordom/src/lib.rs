@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use magnus::{
   class, define_module, function, method,
   prelude::*, gc::register_mark_object, memoize,
-  Error, ExceptionClass, Value, RClass, RModule
+  Error, ExceptionClass, RClass, RModule
 };
 
 use image::{DynamicImage};
@@ -40,17 +40,6 @@ impl Color {
 
   fn hex(&self) -> String {
     format!("#{:02X}{:02X}{:02X}", self.r, self.g, self.b)
-  }
-
-  fn equal(rself: Value, other: Value) -> bool {
-    if !other.is_kind_of(rself.class()) {
-      return false
-    }
-
-    let rself_rgb: Vec<u8> = rself.funcall("rgb", ()).unwrap();
-    let other_rgb: Vec<u8> = other.funcall("rgb", ()).unwrap();
-
-    rself_rgb == other_rgb
   }
 }
 
@@ -136,7 +125,6 @@ fn init() -> Result<(), Error> {
   colorc.define_singleton_method("new", function!(Color::new, 3))?;
   colorc.define_method("rgb", method!(Color::rgb, 0))?;
   colorc.define_method("hex", method!(Color::hex, 0))?;
-  colorc.define_method("==", method!(Color::equal, 1))?;
 
   colorc.define_alias("to_rgb", "rgb")?;
   colorc.define_alias("to_hex", "hex")?;
