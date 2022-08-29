@@ -138,7 +138,7 @@ fn init() -> Result<(), Error> {
   colorc.define_method("hex", method!(Color::hex, 0))?;
   colorc.define_method("==", method!(Color::equal, 1))?;
 
-  colorc.define_alias("to_hex", "hex")?;
+  colorc.define_alias("to_rgb", "rgb")?;
   colorc.define_alias("to_hex", "hex")?;
 
   let imagec = module.define_class("Image", Default::default())?;
