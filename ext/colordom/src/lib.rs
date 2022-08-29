@@ -22,6 +22,7 @@ fn colordom_error() -> ExceptionClass {
   })
 }
 
+#[derive(Clone)]
 #[magnus::wrap(class = "Colordom::Color", free_immediatly, size)]
 struct Color {
   r: u8,
@@ -43,6 +44,7 @@ impl Color {
   }
 }
 
+#[derive(Clone)]
 #[magnus::wrap(class = "Colordom::Image", free_immediatly, size)]
 struct Image {
   img: DynamicImage
@@ -126,6 +128,9 @@ fn init() -> Result<(), Error> {
   colorc.define_method("rgb", method!(Color::rgb, 0))?;
   colorc.define_method("hex", method!(Color::hex, 0))?;
 
+  colorc.define_method("clone", method!(Color::clone, 0))?;
+  colorc.define_method("dup", method!(Color::clone, 0))?;
+
   colorc.define_alias("to_rgb", "rgb")?;
   colorc.define_alias("to_hex", "hex")?;
 
@@ -135,6 +140,9 @@ fn init() -> Result<(), Error> {
   imagec.define_method("histogram", method!(Image::histogram, 1))?;
   imagec.define_method("mediancut", method!(Image::mediancut, 1))?;
   imagec.define_method("kmeans", method!(Image::kmeans, 1))?;
+
+  imagec.define_method("clone", method!(Image::clone, 0))?;
+  imagec.define_method("dup", method!(Image::clone, 0))?;
 
   Ok(())
 }
