@@ -35,6 +35,10 @@ impl Color {
     Self { r, g, b }
   }
 
+  fn r(&self) -> u8 { self.r }
+  fn g(&self) -> u8 { self.g }
+  fn b(&self) -> u8 { self.b }
+
   fn rgb(&self) -> Vec<u8> {
     vec![self.r, self.g, self.b]
   }
@@ -125,6 +129,10 @@ fn init() -> Result<(), Error> {
   let colorc = module.define_class("Color", Default::default())?;
 
   colorc.define_singleton_method("new", function!(Color::new, 3))?;
+  colorc.define_method("r", method!(Color::r, 0))?;
+  colorc.define_method("g", method!(Color::g, 0))?;
+  colorc.define_method("b", method!(Color::b, 0))?;
+
   colorc.define_method("rgb", method!(Color::rgb, 0))?;
   colorc.define_method("hex", method!(Color::hex, 0))?;
 
