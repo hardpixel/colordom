@@ -23,7 +23,8 @@ module Colordom
     # @raise (see Image#initialize)
 
     def histogram(path, max_colors = 5)
-      call(:histogram, path, max_colors)
+      image = Image.new(path)
+      image.histogram(max_colors)
     end
 
     # Get dominant colors using media cut quantization.
@@ -33,7 +34,8 @@ module Colordom
     # @raise (see Image#initialize)
 
     def mediancut(path, max_colors = 5)
-      call(:mediancut, path, max_colors)
+      image = Image.new(path)
+      image.mediancut(max_colors)
     end
 
     # Get dominant colors using k-means clustering.
@@ -43,16 +45,8 @@ module Colordom
     # @raise (see Image#initialize)
 
     def kmeans(path, max_colors = 5)
-      call(:kmeans, path, max_colors)
-    end
-
-    private
-
-    def call(method, path, *args)
-      return if path.nil?
-
       image = Image.new(path)
-      image.send(method, *args)
+      image.kmeans(max_colors)
     end
   end
 end
