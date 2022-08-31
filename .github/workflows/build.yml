@@ -4,10 +4,11 @@ name: Build
 on:
   push:
     branches: [master]
-    paths-ignore:
-      - 'README.md'
-      - 'LICENSE.txt'
-      - 'bin/**'
+    paths:
+      - 'ext/**'
+      - 'lib/**'
+      - 'test/**'
+      - '*.gemspec'
   pull_request:
     branches: [master]
 
