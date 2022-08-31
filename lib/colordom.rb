@@ -27,7 +27,7 @@ module Colordom
       image.histogram(max_colors)
     end
 
-    # Get dominant colors using media cut quantization.
+    # Get dominant colors using median cut quantization.
     # @param path (see Image#initialize)
     # @param max_colors (see Image#mediancut)
     # @return (see Image#mediancut)

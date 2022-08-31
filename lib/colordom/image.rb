@@ -15,7 +15,7 @@ module Colordom
     # @return [Array<Color>]
 
     # @!method mediancut(max_colors)
-    # Get dominant colors using media cut quantization.
+    # Get dominant colors using median cut quantization.
     # @param max_colors [Integer]
     # @return [Array<Color>]
 
