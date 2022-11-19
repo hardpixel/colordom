@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use magnus::{
   class, define_module, function, method,
   prelude::*, gc::register_mark_object, memoize,
-  Error, ExceptionClass, RClass, RModule
+  Error, ExceptionClass, RModule
 };
 
 use image::{DynamicImage};
@@ -15,15 +15,14 @@ use kmeans_colors;
 
 fn colordom_error() -> ExceptionClass {
   *memoize!(ExceptionClass: {
-    let ex: RClass = class::object().const_get::<_, RModule>("Colordom").unwrap().const_get("Error").unwrap();
+    let ex = class::object().const_get::<_, RModule>("Colordom").unwrap().const_get("Error").unwrap();
     register_mark_object(ex);
-
-    ExceptionClass::from_value(*ex).unwrap()
+    ex
   })
 }
 
 #[derive(Clone)]
-#[magnus::wrap(class = "Colordom::Color", free_immediatly, size)]
+#[magnus::wrap(class = "Colordom::Color", free_immediately, size)]
 struct Color {
   r: u8,
   g: u8,
@@ -49,7 +48,7 @@ impl Color {
 }
 
 #[derive(Clone)]
-#[magnus::wrap(class = "Colordom::Image", free_immediatly, size)]
+#[magnus::wrap(class = "Colordom::Image", free_immediately, size)]
 struct Image {
   img: DynamicImage
 }
