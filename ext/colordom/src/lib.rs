@@ -3,7 +3,7 @@ use std::path::PathBuf;
 use magnus::{
   class, define_module, function, method,
   prelude::*, gc::register_mark_object, memoize,
-  Error, ExceptionClass, RModule
+  Error, ExceptionClass, RModule, IntoValueFromNative
 };
 
 use image::{DynamicImage};
@@ -28,6 +28,10 @@ struct Color {
   g: u8,
   b: u8
 }
+
+// This is safe as Color does not contain any Ruby types
+// check issue https://github.com/matsadler/magnus/issues/66
+unsafe impl IntoValueFromNative for Color {}
 
 impl Color {
   fn new(r: u8, g: u8, b: u8) -> Self {
