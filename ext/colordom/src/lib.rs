@@ -10,9 +10,6 @@ use image::{DynamicImage};
 use palette_extract::{Quality, MaxColors, PixelEncoding, PixelFilter};
 use palette::{FromColor, IntoColor, Lab, Pixel, Srgb};
 
-use dominant_color;
-use kmeans_colors;
-
 fn colordom_error() -> ExceptionClass {
   *memoize!(ExceptionClass: {
     let ex = class::object().const_get::<_, RModule>("Colordom").unwrap().const_get("Error").unwrap();
