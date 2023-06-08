@@ -126,7 +126,7 @@ impl Image {
 fn init() -> Result<(), Error> {
   let module = define_module("Colordom")?;
 
-  let colorc = module.define_class("Color", Default::default())?;
+  let colorc = module.define_class("Color", class::object())?;
 
   colorc.define_singleton_method("new", function!(Color::new, 3))?;
   colorc.define_method("r", method!(Color::r, 0))?;
@@ -142,7 +142,7 @@ fn init() -> Result<(), Error> {
   colorc.define_alias("to_rgb", "rgb")?;
   colorc.define_alias("to_hex", "hex")?;
 
-  let imagec = module.define_class("Image", Default::default())?;
+  let imagec = module.define_class("Image", class::object())?;
 
   imagec.define_singleton_method("new", function!(Image::new, 1))?;
   imagec.define_method("histogram", method!(Image::histogram, 1))?;
