@@ -18,6 +18,12 @@ fn colordom_error() -> ExceptionClass {
   })
 }
 
+macro_rules! error {
+  ($ex:ident) => {
+    Error::new(colordom_error(), $ex.to_string())
+  };
+}
+
 #[derive(Clone)]
 #[magnus::wrap(class = "Colordom::Color", free_immediately, size)]
 struct Color {
@@ -58,7 +64,7 @@ impl Image {
   fn new(path: PathBuf) -> Result<Self, Error> {
     match image::open(&path) {
       Ok(img) => Ok(Self { img }),
-      Err(ex) => Err(Error::new(colordom_error(), ex.to_string()))
+      Err(ex) => Err(error!(ex))
     }
   }
 
