@@ -1,8 +1,7 @@
 use std::path::PathBuf;
 
 use magnus::{
-  class, define_module, function, method,
-  prelude::*, gc::register_mark_object, memoize,
+  function, method, prelude::*, value::Lazy, Ruby,
   Error, ExceptionClass, RModule, IntoValueFromNative
 };
 
@@ -10,12 +9,14 @@ use image::{DynamicImage};
 use palette_extract::{Quality, MaxColors, PixelEncoding, PixelFilter};
 use palette::{FromColor, IntoColor, Lab, Pixel, Srgb};
 
+static MODULE: Lazy<RModule> =
+  Lazy::new(|ruby| ruby.class_object().const_get("Colordom").unwrap());
+
+static ERROR: Lazy<ExceptionClass> =
+  Lazy::new(|ruby| ruby.get_inner(&MODULE).const_get("Error").unwrap());
+
 fn colordom_error() -> ExceptionClass {
-  *memoize!(ExceptionClass: {
-    let ex = class::object().const_get::<_, RModule>("Colordom").unwrap().const_get("Error").unwrap();
-    register_mark_object(ex);
-    ex
-  })
+  Ruby::get().unwrap().get_inner(&ERROR)
 }
 
 macro_rules! error {
@@ -129,10 +130,10 @@ impl Image {
 }
 
 #[magnus::init]
-fn init() -> Result<(), Error> {
-  let module = define_module("Colordom")?;
+fn init(ruby: &Ruby) -> Result<(), Error> {
+  let module = ruby.define_module("Colordom")?;
 
-  let colorc = module.define_class("Color", class::object())?;
+  let colorc = module.define_class("Color", ruby.class_object())?;
 
   colorc.define_singleton_method("new", function!(Color::new, 3))?;
   colorc.define_method("r", method!(Color::r, 0))?;
@@ -148,7 +149,7 @@ fn init() -> Result<(), Error> {
   colorc.define_alias("to_rgb", "rgb")?;
   colorc.define_alias("to_hex", "hex")?;
 
-  let imagec = module.define_class("Image", class::object())?;
+  let imagec = module.define_class("Image", ruby.class_object())?;
 
   imagec.define_singleton_method("new", function!(Image::new, 1))?;
   imagec.define_method("histogram", method!(Image::histogram, 1))?;

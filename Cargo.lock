@@ -361,24 +361,25 @@ dependencies = [
 
 [[package]]
 name = "magnus"
-version = "0.5.5"
+version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5b7a37670bc433d081ef5846d5589381fabd8d3410ad3b59faa6b1b4c9c3cbce"
+checksum = "3d87ae53030f3a22e83879e666cb94e58a7bdf31706878a0ba48752994146dab"
 dependencies = [
  "magnus-macros",
  "rb-sys",
  "rb-sys-env",
+ "seq-macro",
 ]
 
 [[package]]
 name = "magnus-macros"
-version = "0.4.1"
+version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6cc17af1d45442c011aa579d727ec6cff8a69aea8a6bbad26736e7112d749bfb"
+checksum = "5968c820e2960565f647819f5928a42d6e874551cab9d88d75e3e0660d7f71e3"
 dependencies = [
  "proc-macro2",
  "quote",
- "syn 1.0.109",
+ "syn 2.0.68",
 ]
 
 [[package]]
@@ -617,6 +618,12 @@ name = "scopeguard"
 version = "1.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "94143f37725109f92c262ed2cf5e59bce7498c01bcc1502d7b9afe439a4e9f49"
+
+[[package]]
+name = "seq-macro"
+version = "0.3.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a3f0bf26fd526d2a95683cd0f87bf103b8539e2ca1ef48ce002d67aad59aa0b4"
 
 [[package]]
 name = "serde"
