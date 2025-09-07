@@ -7,7 +7,6 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 magnus = "0.8"
-image = "0.24"
 dominant_color = "0.3"
 palette_extract = "0.1"
 
@@ -20,6 +19,11 @@ features = ["palette_color"]
 version = "0.6"
 default-features = false
 features = ["std"]
+
+[dependencies.image]
+version = "0.25"
+default-features = false
+features = ["default-formats"]
 
 [lib]
 name = "colordom"
