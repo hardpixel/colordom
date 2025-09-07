@@ -263,9 +263,9 @@ checksum = "460fbee9c2c2f33933d720630a6a0bac33ba7053db5344fac858d4b8952d77d5"
 
 [[package]]
 name = "dominant_color"
-version = "0.3.0"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2494b5d589b485e8b75ef5e81b4dc271fb0d5814132c308d5d11f0de9b300d96"
+checksum = "a4ac4e005485886ae93a8bf162ed056e809e14bd61877cda818adfe3e2a0056d"
 
 [[package]]
 name = "either"

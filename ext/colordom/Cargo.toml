@@ -7,7 +7,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [dependencies]
 magnus = "0.8"
-dominant_color = "0.3"
+dominant_color = "0.4"
 palette_extract = "0.1"
 
 [dependencies.kmeans_colors]
