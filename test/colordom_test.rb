@@ -12,6 +12,11 @@ class ColordomTest < Minitest::Test
     assert_instance_of ::Colordom::Color, result.first
   end
 
+  def test_histogram_handles_pngs_with_alpha_channels
+    result = ::Colordom.histogram(alpha_png_image).map(&:hex)
+    assert_equal ["#313D44", "#357CC0", "#43B649"], result
+  end
+
   def test_that_it_generates_mediancut_palette
     result = ::Colordom.mediancut(valid_image)
     assert_instance_of ::Colordom::Color, result.first
@@ -36,5 +41,9 @@ class ColordomTest < Minitest::Test
 
   def invalid_image
     File.join(__dir__, 'fixtures/invalid.png')
+  end
+
+  def alpha_png_image
+    File.join(__dir__, 'fixtures/alpha.png')
   end
 end

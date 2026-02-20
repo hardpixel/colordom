@@ -83,7 +83,9 @@ impl Image {
       self.has_alpha()
     );
 
-    colors.chunks(3)
+    let bytes_per_color = if self.has_alpha() { 4 } else { 3 };
+
+    colors.chunks(bytes_per_color)
       .take(max_colors)
       .map(|x| Color::new(x[0], x[1], x[2]))
       .collect::<Vec<Color>>()
