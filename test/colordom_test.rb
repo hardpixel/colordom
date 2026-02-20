@@ -27,6 +27,11 @@ class ColordomTest < Minitest::Test
     assert_instance_of ::Colordom::Color, result.first
   end
 
+  def test_kmeans_handles_pngs_with_alpha_channels
+    result = ::Colordom.kmeans(alpha_png_image)
+    assert_instance_of ::Colordom::Color, result.first
+  end
+
   def test_that_it_raises_an_exception
     assert_raises ::Colordom::Error do
       ::Colordom.histogram(invalid_image)

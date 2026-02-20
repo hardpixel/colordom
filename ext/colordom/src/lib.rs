@@ -112,7 +112,17 @@ impl Image {
     let verbose = false;
     let seed = 0;
 
-    let lab: Vec<Lab> = Srgb::from_raw_slice(&self.pixels()).iter()
+    let pixels = self.pixels();
+    let rgb: Vec<u8> = if self.has_alpha() {
+      pixels.chunks(4)
+        .filter(|pixel| pixel[3] == 255)
+        .flat_map(|pixel| [pixel[0], pixel[1], pixel[2]])
+        .collect()
+    } else {
+      pixels.to_vec()
+    };
+
+    let lab: Vec<Lab> = Srgb::from_raw_slice(&rgb).iter()
       .map(|x| x.into_format().into_color())
       .collect();
 
