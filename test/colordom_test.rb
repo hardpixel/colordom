@@ -22,6 +22,11 @@ class ColordomTest < Minitest::Test
     assert_instance_of ::Colordom::Color, result.first
   end
 
+  def test_mediancut_handles_pngs_with_alpha_channels
+    result = ::Colordom.mediancut(alpha_png_image).map(&:hex)
+    assert_equal ["#347CC3", "#343C44", "#44B44C", "#3C5868", "#3C9CA8"], result
+  end
+
   def test_that_it_generates_kmeans_palette
     result = ::Colordom.kmeans(valid_image)
     assert_instance_of ::Colordom::Color, result.first

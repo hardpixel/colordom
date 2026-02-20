@@ -92,9 +92,15 @@ impl Image {
   }
 
   fn mediancut(&self, max_colors: usize) -> Vec<Color> {
+    let encoding = if self.has_alpha() {
+      PixelEncoding::Rgba
+    } else {
+      PixelEncoding::Rgb
+    };
+
     let colors = palette_extract::get_palette_with_options(
       &self.pixels(),
-      PixelEncoding::Rgb,
+      encoding,
       Quality::new(6),
       MaxColors::new(max_colors as u8),
       PixelFilter::None
