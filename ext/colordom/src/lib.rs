@@ -83,16 +83,24 @@ impl Image {
       self.has_alpha()
     );
 
-    colors.chunks(3)
+    let bytes_per_color = if self.has_alpha() { 4 } else { 3 };
+
+    colors.chunks(bytes_per_color)
       .take(max_colors)
       .map(|x| Color::new(x[0], x[1], x[2]))
       .collect::<Vec<Color>>()
   }
 
   fn mediancut(&self, max_colors: usize) -> Vec<Color> {
+    let encoding = if self.has_alpha() {
+      PixelEncoding::Rgba
+    } else {
+      PixelEncoding::Rgb
+    };
+
     let colors = palette_extract::get_palette_with_options(
       &self.pixels(),
-      PixelEncoding::Rgb,
+      encoding,
       Quality::new(6),
       MaxColors::new(max_colors as u8),
       PixelFilter::None
@@ -110,7 +118,17 @@ impl Image {
     let verbose = false;
     let seed = 0;
 
-    let lab: Vec<Lab> = Srgb::from_raw_slice(&self.pixels()).iter()
+    let pixels = self.pixels();
+    let rgb: Vec<u8> = if self.has_alpha() {
+      pixels.chunks(4)
+        .filter(|pixel| pixel[3] == 255)
+        .flat_map(|pixel| [pixel[0], pixel[1], pixel[2]])
+        .collect()
+    } else {
+      pixels.to_vec()
+    };
+
+    let lab: Vec<Lab> = Srgb::from_raw_slice(&rgb).iter()
       .map(|x| x.into_format().into_color())
       .collect();
 
