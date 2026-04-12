@@ -4,3 +4,6 @@ source 'https://rubygems.org'
 
 # Specify your gem's dependencies in colordom.gemspec
 gemspec
+
+gem 'minitest', '>= 5.0'
+gem 'rake-compiler', '>= 1.2'
