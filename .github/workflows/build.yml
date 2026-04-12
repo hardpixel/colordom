@@ -8,6 +8,8 @@ on:
       - 'ext/**'
       - 'lib/**'
       - 'test/**'
+      - 'Cargo.toml'
+      - 'Cargo.lock'
       - '*.gemspec'
   pull_request:
     branches: [master]
@@ -20,11 +22,11 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        ruby: ['2.7', '3.4']
+        ruby: ['2.7', '3.4', '4.0']
     runs-on: ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       - name: Install Rust
         uses: dtolnay/rust-toolchain@stable
